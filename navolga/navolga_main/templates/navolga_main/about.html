@@ -1,0 +1,21 @@
+{% include 'header.html' %}
+{% include 'sidebar.html' %}
+{% load static %}
+<!-- Page Title-->
+{% if messages %}
+<div class="alert alert-warning" role="alert">
+  {% for message in messages %}
+    <p>{{ message }}</p>
+  {% endfor %}
+</div>
+{% endif %} 
+      <div class="container py-5">
+        <div class="row justify-content-center">
+          <div class="col-lg-9">
+            <p>Ocare Health is a comprehensive online healthcare provider, dedicated to offering accessible and affordable health solutions across Uganda. Our team of qualified professionals provide confidential consultations and expert guidance, ensuring personalized care for all. With a wide range of medications, skincare products, and wellness essentials, our user-friendly platform makes managing your health easy. Enjoy the convenience of shopping from home with fast delivery right to your doorstep. At Ocare Health, we are committed to revolutionizing healthcare by prioritizing safety, convenience, and affordability for everyone.</p>
+
+          </div>
+        </div>
+      </div>
+    </main>
+    {%include 'footer.html'%}

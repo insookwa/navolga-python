@@ -1,0 +1,136 @@
+<!-- Sidebar menu-->
+<aside class="offcanvas offcanvas-expand w-100 border-end zindex-lg-5 pt-lg-5" id="sideNav"
+  style="max-width: 21.875rem;">
+  <div class="pt-2 d-none d-lg-block"></div>
+  <ul class="nav nav-tabs nav-justified mt-4 mt-lg-5 mb-0" role="tablist" style="min-height: 3rem;">
+    <li class="nav-item"><a class="nav-link fw-medium active" href="#categories" data-bs-toggle="tab"
+        role="tab">Products</a></li>
+    <li class="nav-item"><a class="nav-link fw-medium" href="#menu" data-bs-toggle="tab" role="tab">Menu</a></li>
+    <li class="nav-item d-lg-none"><a class="nav-link fs-sm" href="#" data-bs-dismiss="offcanvas" role="tab"><i
+          class="ci-close fs-xs me-2"></i>Close</a></li>
+  </ul>
+  <div class="offcanvas-body px-0 pt-3 pb-0" data-simplebar>
+    <div class="tab-content">
+      <!-- Categories-->
+      <div class="sidebar-nav tab-pane fade show active" id="categories" role="tabpanel">
+        <div class="widget widget-categories">
+          <div class="accordion" id="shop-categories">
+            <!-- Special offers-->
+            <div class="accordion-item border-bottom">
+              <h3 class="accordion-header px-grid-gutter"><a class="nav-link-style d-block fs-md fw-normal py-3"
+                  href="#"><span class="d-flex align-items-center"><i
+                      class="ci-discount fs-lg text-danger mt-n1 me-2"></i>Special Offers</span></a></h3>
+            </div>
+
+            {%for category in categories %}
+            <div class="accordion-item border-bottom">
+              <h3 class="accordion-header px-grid-gutter"><a class="nav-link-style d-block fs-md fw-normal py-3"
+                  href='{% url 'category_products' category.id %}'><span class="d-flex align-items-center"><i
+                     ></i>{{category.name}}</span></a></h3>
+            </div>
+            {% endfor %}
+
+
+          </div>
+        </div>
+      </div>
+      <!-- Menu-->
+      <div class="sidebar-nav tab-pane fade" id="menu" role="tabpanel">
+        <div class="widget widget-categories">
+          <div class="accordion" id="shop-menu">
+            <!-- Homepages-->
+            <div class="accordion-item border-bottom">
+              <h3 class="accordion-header px-grid-gutter"><a class="nav-link-style d-block fs-md fw-normal py-3"
+                  href={% url 'home' %}><span class="d-flex align-items-center"><i
+                     ></i>Home</span></a></h3>
+            </div>
+
+            <!-- conditions-->
+            <div class="accordion-item border-bottom">
+              <h3 class="accordion-header px-grid-gutter">
+                <button class="accordion-button collapsed py-3" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#conditions" aria-expanded="false" aria-controls="conditions">Conditions</button>
+              </h3>
+              <div class="collapse" id="conditions" data-bs-parent="#shop-menu">
+                <div class="px-grid-gutter pt-1 pb-4">
+                  <div class="widget widget-links">
+                    <ul class="widget-list">
+                      {%for category in categories %}
+                      <li class="widget-list-item"><a class="widget-list-link" href='{% url 'category_products' category.id %}'>{{category.name}}</a></li>
+                          {% endfor %}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- contact us-->
+            <div class="accordion-item border-bottom">
+              <h3 class="accordion-header px-grid-gutter"><a class="nav-link-style d-block fs-md fw-normal py-3"
+                  href={% url 'contact_us' %}><span class="d-flex align-items-center"><i
+                     ></i>Contact Us</span></a></h3>
+            </div>
+
+            <!--About Ocare-->
+            <div class="accordion-item border-bottom">
+              <h3 class="accordion-header px-grid-gutter"><a class="nav-link-style d-block fs-md fw-normal py-3"
+                  href={% url 'about_us' %}><span class="d-flex align-items-center"><i
+                     ></i>About Ocare</span></a></h3>
+            </div>
+            <!-- Account-->
+            <div class="accordion-item border-bottom">
+              <h3 class="accordion-header px-grid-gutter">
+                <button class="accordion-button collapsed py-3" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#account" aria-expanded="false" aria-controls="account">My Account</button>
+              </h3>
+              <div class="collapse" id="account" data-bs-parent="#shop-menu">
+                <div class="px-grid-gutter pt-1 pb-4">
+                  <div class="widget widget-links">
+                    <ul class="widget-list">
+                      {% if request.user.is_authenticated %}
+
+                      <li class="widget-list-item"><a class="widget-list-link" href="account-profile.html">Profile
+                          Settings</a></li>
+                      <li class="widget-list-item"><a class="widget-list-link" href="account-orders.html">Orders
+                          History</a></li>
+                      <li class="widget-list-item"><a class="widget-list-link" href="{% url 'logout_view' %}">Logout</a>
+                      </li>
+                      <li class="widget-list-item"><a class="widget-list-link"
+                          href="account-password-recovery.html">Password Recovery</a></li>
+                      {% else %}
+                      <li class="widget-list-item"><a class="widget-list-link" href="{% url 'login_view' %}">Sign In /
+                          Sign Up</a></li>
+                      {% endif %}
+
+
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="offcanvas-footer d-block px-grid-gutter pt-4 pb-4 mb-2">
+    <div class="d-flex mb-3"><i class="ci-support h4 mb-0 fw-normal text-primary mt-1 me-1"></i>
+      <div class="ps-2">
+        <div class="text-muted fs-sm">Support</div><a class="nav-link-style fs-md"
+          href="tel:+256200947066">0762313001</a>
+      </div>
+    </div>
+    <div class="d-flex mb-3"><i class="ci-mail h5 mb-0 fw-normal text-primary mt-1 me-1"></i>
+      <div class="ps-2">
+        <div class="text-muted fs-sm">Email</div><a class="nav-link-style fs-md"
+          href="mailto:info@ocareug.com">info@navolga.com</a>
+      </div>
+    </div>
+    <h6 class="pt-2 pb-1">Follow us</h6><a class="btn-social bs-outline bs-twitter me-2 mb-2" href="#"><i
+        class="ci-twitter"></i></a><a class="btn-social bs-outline bs-facebook me-2 mb-2" href="#"><i
+        class="ci-facebook"></i></a><a class="btn-social bs-outline bs-instagram me-2 mb-2" href="#"><i
+        class="ci-instagram"></i></a><a class="btn-social bs-outline bs-youtube me-2 mb-2" href="#"><i
+        class="ci-youtube"></i></a>
+  </div>
+</aside>

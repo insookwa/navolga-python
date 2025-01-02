@@ -1,0 +1,301 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from cartzilla.createx.studio/home-grocery-store.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 09 Oct 2023 15:49:13 GMT -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+
+<head>
+  <meta charset="utf-8">
+  <title>Navolga</title>
+  <!-- SEO Meta Tags-->
+  <meta name="description" content="ocare pharmacy">
+  <meta name="keywords" content="treatments, pharmacy, tablets, syrups, modern, responsive,  business, mobile, bootstrap, html5, css3, js, gallery, slider, touch, creative, clean">
+  <meta name="author" content="niktec automations">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Viewport-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Favicon and Touch Icons-->
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="mask-icon" color="#fe6a6a" href="safari-pinned-tab.svg">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+  <!-- Vendor Styles including: Font Icons, Plugins, etc.-->
+  <link rel="stylesheet" media="screen" href={% static 'vendor/simplebar/dist/simplebar.min.css' %} >
+  <link rel="stylesheet" media="screen" href={% static 'vendor/tiny-slider/dist/tiny-slider.css' %} >
+  <!-- Main Theme Styles + Bootstrap-->
+  <link rel="stylesheet" media="screen" href={% static 'css/theme.min.css' %} >
+  <!-- Google Tag Manager-->
+  <script>
+    (function(w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src =
+        '../www.googletagmanager.com/gtm5445.html?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-WKV3GT5');
+  </script>
+</head>
+<!-- Styling for pesapal frame-->
+<style>
+
+  iframe {
+      border: none;
+      width: 100%;
+      max-width: 800px;
+      height: 600px;
+  }
+
+  .container-fluid .table {
+    width: 100%;
+    max-width: 100%;
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    padding: 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.table thead {
+    background-color: #f9f9f9;
+    font-weight: bold;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.product-item {
+  flex: 1 1 23%; /* Makes each product take up 48% of the width on small screens */
+}
+
+@media (min-width: 576px) {
+  .product-item {
+    flex: 1 1 23%; /* 3 items per row on larger phones/tablets */
+  }
+}
+
+@media (min-width: 768px) {
+  .product-item {
+    flex: 1 1 23%; /* 4 items per row on tablets */
+  }
+}
+
+@media (min-width: 992px) {
+  .product-item {
+    flex: 1 1 20%; /* 5 items per row on desktops */
+  }
+}
+
+
+
+</style>
+
+
+
+
+
+<!-- Body-->
+
+<body class="bg-secondary">
+  <!-- Google Tag Manager (noscript)-->
+  <noscript>
+    <iframe src="http://www.googletagmanager.com/ns.html?id=GTM-WKV3GT5" height="0" width="0" style="display: none; visibility: hidden;"></iframe>
+  </noscript>
+  <!-- Sign in / sign up modal-->
+  <div class="modal fade" id="signin-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-secondary">
+          <ul class="nav nav-tabs card-header-tabs" role="tablist">
+            <li class="nav-item"><a class="nav-link fw-medium active" href="#signin-tab" data-bs-toggle="tab" role="tab" aria-selected="true"><i class="ci-unlocked me-2 mt-n1"></i>Sign in</a></li>
+            <li class="nav-item"><a class="nav-link fw-medium" href="#signup-tab" data-bs-toggle="tab" role="tab" aria-selected="false"><i class="ci-user me-2 mt-n1"></i>Sign up</a></li>
+          </ul>
+          <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body tab-content py-4">
+          <form class="needs-validation tab-pane fade show active" autocomplete="off" novalidate id="signin-tab">
+            <div class="mb-3">
+              <label class="form-label" for="si-email">Email address</label>
+              <input class="form-control" type="email" id="si-email" placeholder="info@ocareug.com" required>
+              <div class="invalid-feedback">Please provide a valid email address.</div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="si-password">Password</label>
+              <div class="password-toggle">
+                <input class="form-control" type="password" id="si-password" required>
+                <label class="password-toggle-btn" aria-label="Show/hide password">
+                  <input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
+                </label>
+              </div>
+            </div>
+            <div class="mb-3 d-flex flex-wrap justify-content-between">
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="si-remember">
+                <label class="form-check-label" for="si-remember">Remember me</label>
+              </div><a class="fs-sm" href="#">Forgot password?</a>
+            </div>
+            <button class="btn btn-primary btn-shadow d-block w-100" type="submit">Sign in</button>
+          </form>
+          <form class="needs-validation tab-pane fade" autocomplete="off" novalidate id="signup-tab">
+            <div class="mb-3">
+              <label class="form-label" for="su-name">Full name</label>
+              <input class="form-control" type="text" id="su-name" placeholder="John Doe" required>
+              <div class="invalid-feedback">Please fill in your name.</div>
+            </div>
+            <div class="mb-3">
+              <label for="su-email">Email address</label>
+              <input class="form-control" type="email" id="su-email" placeholder="johndoe@example.com" required>
+              <div class="invalid-feedback">Please provide a valid email address.</div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="su-password">Password</label>
+              <div class="password-toggle">
+                <input class="form-control" type="password" id="su-password" required>
+                <label class="password-toggle-btn" aria-label="Show/hide password">
+                  <input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
+                </label>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="su-password-confirm">Confirm password</label>
+              <div class="password-toggle">
+                <input class="form-control" type="password" id="su-password-confirm" required>
+                <label class="password-toggle-btn" aria-label="Show/hide password">
+                  <input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
+                </label>
+              </div>
+            </div>
+            <button class="btn btn-primary btn-shadow d-block w-100" type="submit">Sign up</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Navbar-->
+  <header class="bg-light shadow-sm fixed-top" data-fixed-element>
+    <div class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid"><a class="navbar-brand d-none d-sm-block me-3 me-xl-4 flex-shrink-0" href='{% url 'home' %}'><img src={% static "img/2.png" %} width="70" alt="navolga"></a><a class="navbar-brand d-sm-none me-2" href='{% url 'home' %}'><img src={% static "img/ocarelogo.png" %}  width="74" alt="ocare"></a>
+        <!-- Search-->
+        <div class="input-group d-none d-lg-flex flex-nowrap mx-4"><i class="ci-search position-absolute top-50 start-0 translate-middle-y ms-3"></i>
+          <input
+          class="form-control rounded-start w-100"
+          type="text"
+          name="q"
+          placeholder="Search for products"
+          value="{{ request.GET.q|default:'' }}"
+        >
+          <select class="form-select flex-shrink-0" style="width: 14rem;">
+            <option>All categories</option>
+            {% for category in categories %}
+            <option>{{ category.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <!-- Toolbar-->
+        <div class="navbar-toolbar d-flex flex-shrink-0 align-items-center ms-xl-2">
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sideNav"><span class="navbar-toggler-icon"></span></button><a class="navbar-tool d-flex d-lg-none" href="#searchBox" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="searchBox"><span class="navbar-tool-tooltip">Search</span>
+            <div class="navbar-tool-icon-box"><i class="navbar-tool-icon ci-search"></i></div>
+          </a><a class="navbar-tool d-none d-lg-flex" href="#"><span class="navbar-tool-tooltip">Wishlist</span>
+            <div class="navbar-tool-icon-box"><i class="navbar-tool-icon ci-heart"></i></div>
+            {% if request.user.is_authenticated %}
+            <div class="navbar-tool-text ms-n3"><small>Hello, {{ request.user.username }}</small>My Account</div></a>
+            {% else %}
+            <div class="navbar-tool-text ms-n3"><small>Hello, <a href="{% url 'login_view' %}"></small>SignUp/Login</div></a>
+         
+            {% endif %}
+
+            {% if request.user.is_authenticated %}
+            {% if items %}
+
+            
+            <div class="navbar-tool dropdown ms-3"><a class="navbar-tool-icon-box bg-secondary dropdown-toggle" href="{% url 'basket' %}"><span class="navbar-tool-label">{{total_items}}</span><i class="navbar-tool-icon ci-cart"></i></a><a class="navbar-tool-text" href="{% url 'basket' %}"><small>My Cart</small>UGX.{{ total }}</a>
+              <div class="dropdown-menu dropdown-menu-end">
+                <div class="widget widget-cart px-3 pt-2 pb-3" style="width: 20rem;">
+                  <div style="height: 15rem;" data-simplebar data-simplebar-auto-hide="false">
+                    {% for item in items %}
+                    <div class="widget-cart-item pb-2 border-bottom">
+                      <button class="btn-close text-danger" type="button" aria-label="Remove"><span aria-hidden="true">&times;</span></button>
+                      <div class="d-flex align-items-center"><a class="d-block" href='{% url 'product_details' item.product.id %}'><img src={{ item.product.image.url }} width="64" alt="Product"></a>
+                        <div class="ps-2">
+                          <h6 class="widget-product-title"><a href="grocery-single.html">{{item.product.name }}</a></h6>
+                          <div class="widget-product-meta"><span class="text-accent me-2">UGX.{{ item.product.price }}</span><span class="text-muted">x {{ item.quantity }}</span></div>
+                        </div>
+                      </div>
+                    </div>
+                    {% endfor %}
+                  </div>
+                  <div class="d-flex flex-wrap justify-content-between align-items-center pt-3">
+                    <div class="fs-sm me-2 py-2"><span class="text-muted">Total:</span><span class="text-accent fs-base ms-1">UGX.{{ total }}</span></div><a class="btn btn-primary btn-sm" href="{% url 'basket' %}"><i class="ci-card me-2 fs-base align-middle"></i>View Cart<i class="ci-arrow-right ms-1 me-n1"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            {% else %}
+            <div class="navbar-tool dropdown ms-3"><a class="navbar-tool-icon-box bg-secondary dropdown-toggle" href="{% url 'basket' %}"><span class="navbar-tool-label">0</span><i class="navbar-tool-icon ci-cart"></i></a><a class="navbar-tool-text" href="{% url 'basket' %}"><small>My Cart</small>UGX.{{ total_amount }}</a>
+ 
+            </div>
+  
+
+            {% endif %}
+
+
+          {% else %}
+          <div class="navbar-tool dropdown ms-3"><a class="navbar-tool-icon-box bg-secondary dropdown-toggle" href='{% url 'login_view' %}'><i class="navbar-tool-icon ci-cart"></i></a><a class="navbar-tool-text" href='{% url 'login_view' %}'><small>My Cart</small>UGX.0 </a>
+          </div>
+          {% endif %} 
+
+        </div>
+      </div>
+    </div>
+    <!-- Search collapse-->
+    <div class="collapse" id="searchBox">
+      <div class="card pt-2 pb-4 border-0 rounded-0">
+        <div class="container">
+          <form method="get" action="">
+            <div class="input-group">
+              <i class="ci-search position-absolute top-50 start-0 translate-middle-y ms-3"></i>
+              <input
+                class="form-control rounded-start"
+                type="text"
+                name="q"
+                placeholder="Search for products"
+                value="{{ request.GET.q|default:'' }}"
+              >
+              <button class="btn btn-primary" type="submit">Search</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+  </header>
+
+
+  <!-- Page-->
+  <main class="offcanvas-enabled" style="padding-top: 5rem;">
