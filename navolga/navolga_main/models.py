@@ -1,6 +1,7 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 from django.utils.text import slugify
+
 
 class Category(models.Model):
     name = models.CharField(max_length=255)
@@ -38,6 +39,7 @@ class Product(models.Model):
     
 class Slide(models.Model):
     title = models.CharField(max_length=200, help_text="The headline for the slide")
+    background_image = models.ImageField(upload_to='slides/backgrounds/', blank=True, null=True)
     description = models.TextField(help_text="Detailed description or subtitle for the slide")
     background_color = models.CharField(
         max_length=7, 
@@ -65,3 +67,12 @@ class Slide(models.Model):
     def __str__(self):
         return self.title
     
+class Basket(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="basket")
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Basket of {self.user.username}"
+
+    def get_total(self):
+        return sum(item.get_subtotal() for item in self.items.all())
