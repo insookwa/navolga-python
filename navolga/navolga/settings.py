@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'cart',
     'payments',
     'navolga_main',
-    'user'
+    'user',
+    'blog'
 
 ]
 
