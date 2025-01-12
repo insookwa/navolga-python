@@ -70,3 +70,5 @@ test*.xml
 *.egg-info/
 dist/
 build/
+
+navolga/media/blog_images/
