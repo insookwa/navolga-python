@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'payments',
     'navolga_main',
     'user',
-    'blog'
+    'blog',
+    'speaking_club',
 
 ]
 

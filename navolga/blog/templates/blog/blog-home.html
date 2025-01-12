@@ -31,37 +31,29 @@
       </div>
       <div class="container pb-5 mb-2 mb-md-4">
         <!-- Featured posts carousel-->
+        {% if featured_posts %}
+
         <div class="featured-posts-carousel tns-carousel pt-5">
+          
           <div class="tns-carousel-inner" data-carousel-options="{&quot;items&quot;: 2, &quot;nav&quot;: false, &quot;autoHeight&quot;: true, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;700&quot;:{&quot;items&quot;:2, &quot;gutter&quot;: 20},&quot;991&quot;:{&quot;items&quot;:2, &quot;gutter&quot;: 30}}}">
-            <article><a class="blog-entry-thumb mb-3" href="blog-single-sidebar.html"><span class="blog-entry-meta-label fs-sm"><i class="ci-time"></i>Sep 10</span><img src="img/blog/featured/01.jpg" alt="Featured post"></a>
+            {% for post in featured_posts %}
+            <article><a class="blog-entry-thumb mb-3" href="blog-single-sidebar.html"><span class="blog-entry-meta-label fs-sm"><i class="ci-time"></i>{{ post.created_at}}"</span><img src="{{ post.featured_photos.0.photo.url }}" alt="{{ post.title }}"></a>
               <div class="d-flex justify-content-between mb-2 pt-1">
-                <h2 class="h5 blog-entry-title mb-0"><a href="blog-single-sidebar.html">Ulyanovsk</a></h2><a class="blog-entry-meta-link fs-sm text-nowrap ms-3 pt-1" href="blog-single-sidebar.html#comments"><i class="ci-message"></i>13</a>
+                <h2 class="h5 blog-entry-title mb-0"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2><a class="blog-entry-meta-link fs-sm text-nowrap ms-3 pt-1" href="blog-single-sidebar.html#comments"><i class="ci-message"></i>13</a>
               </div>
               <div class="d-flex align-items-center fs-sm"><a class="blog-entry-meta-link" href="#">
-                  <div class="blog-entry-author-ava"><img src="img/blog/meta/04.jpg" alt="Olivia Reyes"></div>nsukva</a><span class="blog-entry-meta-divider"></span>
-                <div class="fs-sm text-muted">in <a href='#' class='blog-entry-meta-link'>Ulyanovsk</a>, <a href='#' class='blog-entry-meta-link'>Traveling</a></div>
+                  <div class="blog-entry-author-ava"><img src="{{ post.featured_image.url }}" alt="{{ post.author }}"></div>"{{ post.author }}"</a><span class="blog-entry-meta-divider"></span>
+                <div class="fs-sm text-muted">in <a href='#' class='blog-entry-meta-link'>"{{ post.tags }}"</a>, <a href='#' class='blog-entry-meta-link'>Traveling</a></div>
               </div>
             </article>
-            <article><a class="blog-entry-thumb mb-3" href="blog-single-sidebar.html"><span class="blog-entry-meta-label fs-sm"><i class="ci-time"></i>Aug 27</span><img src="img/blog/featured/02.jpg" alt="Featured post"></a>
-              <div class="d-flex justify-content-between mb-2 pt-1">
-                <h2 class="h5 blog-entry-title mb-0"><a href="blog-single-sidebar.html">Other Cities On River Volga</a></h2><a class="blog-entry-meta-link fs-sm text-nowrap ms-3 pt-1" href="blog-single-sidebar.html#comments"><i class="ci-message"></i>9</a>
-              </div>
-              <div class="d-flex align-items-center fs-sm"><a class="blog-entry-meta-link" href="#">
-                  <div class="blog-entry-author-ava"><img src="img/blog/meta/05.jpg" alt="Rafael Marquez"></div>nsukva</a><span class="blog-entry-meta-divider"></span>
-                <div class="fs-sm text-muted">in <a href='#' class='blog-entry-meta-link'>Online shpopping</a></div>
-              </div>
-            </article>
-            <article><a class="blog-entry-thumb mb-3" href="blog-single-sidebar.html"><span class="blog-entry-meta-label fs-sm"><i class="ci-time"></i>Aug 16</span><img src="img/blog/featured/03.jpg" alt="Featured post"></a>
-              <div class="d-flex justify-content-between mb-2 pt-1">
-                <h2 class="h5 blog-entry-title mb-0"><a href="blog-single-sidebar.html">Where to start from in Russia</a></h2><a class="blog-entry-meta-link fs-sm text-nowrap ms-3 pt-1" href="blog-single-sidebar.html#comments"><i class="ci-message"></i>23</a>
-              </div>
-              <div class="d-flex align-items-center fs-sm"><a class="blog-entry-meta-link" href="#">
-                  <div class="blog-entry-author-ava"><img src="img/blog/meta/03.jpg" alt="Paul Woodred"></div>nsukva</a><span class="blog-entry-meta-divider"></span>
-                <div class="fs-sm text-muted">in <a href='#' class='blog-entry-meta-link'>Russia</a></div>
-              </div>
-            </article>
+            {% endfor %}
           </div>
+
         </div>
+        {% else %}
+    <p>No featured posts available at the moment.</p>
+        {% endif %}
+        
         <hr class="mt-5">
         <div class="pt-5 mt-md-2">
           <!-- Entries grid-->

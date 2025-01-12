@@ -22,6 +22,7 @@ urlpatterns = [
     path('user/', include('user.urls')),
     path('shop/', include('navolga_main.urls')),
     path('', include('blog.urls')),
+    path('speaking-club/', include('speaking_club.urls')),
     # path('payments/', include('payments.urls')),
 
 ]

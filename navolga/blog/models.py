@@ -30,7 +30,8 @@ class Tag(models.Model):
         return self.name
 
 
-# Model for blog posts
+
+
 class Post(models.Model):
     STATUS_CHOICES = [
         ('draft', 'Draft'),
@@ -41,8 +42,8 @@ class Post(models.Model):
     slug = models.SlugField(max_length=200, unique=True, blank=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.TextField()
-    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, related_name='posts')
-    tags = models.ManyToManyField(Tag, blank=True, related_name='posts')
+    category = models.ForeignKey('Category', on_delete=models.SET_NULL, null=True, related_name='posts')
+    tags = models.ManyToManyField('Tag', blank=True, related_name='posts')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft')
@@ -56,11 +57,9 @@ class Post(models.Model):
         return self.title
 
 
-# Model for photos associated with posts
 class PostPhoto(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='photos')
-    image = models.ImageField(upload_to='post_photos/')
-    caption = models.CharField(max_length=255, blank=True, null=True)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='photos')  # Add related_name here
+    photo = models.ImageField(upload_to='blog_images/')
     is_featured = models.BooleanField(default=False)  # Indicates if the photo is the featured image
 
     def save(self, *args, **kwargs):
