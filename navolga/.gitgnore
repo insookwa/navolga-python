@@ -1,2 +1,72 @@
-*/migrations/*.py
-!*/migrations/__init__.py
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Environment variables
+.env
+*.env
+
+# Django migrations
+**/migrations/*
+!**/migrations/__init__.py
+
+# Media files
+media/
+# Uncomment this line if you have specific files in media you want to keep
+#!media/example/
+
+# Static files
+staticfiles/
+
+# Local development settings
+local_settings.py
+
+# Secret keys
+secrets.json
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Virtual environments
+venv/
+env/
+*.egg-info/
+.eggs/
+
+# IDE files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Coverage reports
+htmlcov/
+.coverage
+.tox/
+.nox/
+.cache
+coverage.xml
+*.cover
+
+# Testing
+.pytest_cache/
+nosetests.xml
+test*.xml
+*.test
+.junit.xml
+
+# Build and packaging
+*.tar.gz
+*.egg
+*.egg-info/
+dist/
+build/
