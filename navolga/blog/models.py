@@ -41,6 +41,7 @@ class Post(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, unique=True, blank=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+    snipet = models.TextField(blank=True,null=True)
     content = models.TextField()
     category = models.ForeignKey('Category', on_delete=models.SET_NULL, null=True, related_name='posts')
     tags = models.ManyToManyField('Tag', blank=True, related_name='posts')

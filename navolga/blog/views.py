@@ -4,7 +4,11 @@ from django.db.models import Prefetch
 
 
 def blog_home(request):
-    posts = Post.objects.filter(status='published').order_by('-created_at')
+    
+
+    posts = Post.objects.filter(status='published').order_by('-created_at').prefetch_related(
+        Prefetch('photos', queryset=PostPhoto.objects.all(), to_attr='post_photos')
+    )
 
     # Prefetch only the featured photos
     featured_posts = posts[:3]
