@@ -4,7 +4,7 @@ from .models import Event, Attendee
 
 def event_list(request):
     events = Event.objects.order_by('date', 'time').filter(date__gte='today')
-    return render(request, 'speaking_club/event_list.html', {'events': events})
+    return render(request, 'speaking_club/speaking_club.html', {'events': events})
 
 def event_detail(request, pk):
     event = get_object_or_404(Event, pk=pk)
