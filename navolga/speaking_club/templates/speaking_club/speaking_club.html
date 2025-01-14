@@ -1,50 +1,54 @@
 {% include 'header.html' %}
+{% include 'sidebar.html' %}
 {% load static %}
+
+
 <!-- Page Title-->
 {% if messages %}
 <div class="alert alert-warning" role="alert">
   {% for message in messages %}
-    <p>{{ message }}</p>
+  <p>{{ message }}</p>
   {% endfor %}
 </div>
-{% endif %} 
-      <!-- Page Title (Light)-->
-      <div class="bg-secondary py-4">
-        <div class="container d-lg-flex justify-content-between py-2 py-lg-3">
-          <div class="order-lg-2 mb-3 mb-lg-0 pt-lg-2">
-            <nav aria-label="breadcrumb">
-              <ol class="breadcrumb flex-lg-nowrap justify-content-center justify-content-lg-start">
-                <li class="breadcrumb-item"><a class="text-nowrap" href="index-2.html"><i class="ci-home"></i>Home</a></li>
-                <li class="breadcrumb-item text-nowrap active"support@example.com aria-current="page">English Contacts</li>
-              </ol>
-            </nav>
-          </div>
-          <div class="order-lg-1 pe-lg-4 text-center text-lg-start">
-            <h1 class="h3 mb-0">English Speaking</h1>
-          </div>
+{% endif %}
+<!-- Page Title (Light)-->
+<div class="bg-secondary py-4">
+  <div class="container d-lg-flex justify-content-between py-2 py-lg-3">
+    <div class="order-lg-2 mb-3 mb-lg-0 pt-lg-2">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb flex-lg-nowrap justify-content-center justify-content-lg-start">
+          <li class="breadcrumb-item"><a class="text-nowrap" href="index-2.html"><i class="ci-home"></i>Home</a></li>
+          <li class="breadcrumb-item text-nowrap active" support@example.com aria-current="page">English Contacts</li>
+        </ol>
+      </nav>
+    </div>
+    <div class="order-lg-1 pe-lg-4 text-center text-lg-start">
+      <h1 class="h3 mb-0"></h1>
+    </div>
+  </div>
+</div>
+<!-- Contact detail cards-->
+<section class="container-fluid pt-grid-gutter">
+  <div class="row">
+    <div class="col-xl-3 col-sm-6 mb-grid-gutter"><a class="card h-100" href="#map" data-scroll>
+        <div class="card-body text-center"><i class="ci-location h3 mt-2 mb-4 text-primary"></i>
+          <h3 class="h6 mb-2">Main address</h3>
+          <p class="fs-sm text-muted">Ulyanovsk, Russia</p>
+          <div class="fs-sm text-primary">Click to see map<i class="ci-arrow-right align-middle ms-1"></i></div>
+        </div>
+      </a></div>
+    <div class="col-xl-3 col-sm-6 mb-grid-gutter">
+      <div class="card h-100">
+        <div class="card-body text-center"><i class="ci-time h3 mt-2 mb-4 text-primary"></i>
+          <h3 class="h6 mb-3">Working hours</h3>
+          <ul class="list-unstyled fs-sm text-muted mb-0">
+            <li>Mon - Fri: 8AM - 10PM</li>
+
+          </ul>
         </div>
       </div>
-      <!-- Contact detail cards-->
-      <section class="container-fluid pt-grid-gutter">
-        <div class="row">
-          <div class="col-xl-3 col-sm-6 mb-grid-gutter"><a class="card h-100" href="#map" data-scroll>
-              <div class="card-body text-center"><i class="ci-location h3 mt-2 mb-4 text-primary"></i>
-                <h3 class="h6 mb-2">Main address</h3>
-                <p class="fs-sm text-muted">Ulyanovsk, Russia</p>
-                <div class="fs-sm text-primary">Click to see map<i class="ci-arrow-right align-middle ms-1"></i></div>
-              </div></a></div>
-          <div class="col-xl-3 col-sm-6 mb-grid-gutter">
-            <div class="card h-100">
-              <div class="card-body text-center"><i class="ci-time h3 mt-2 mb-4 text-primary"></i>
-                <h3 class="h6 mb-3">Working hours</h3>
-                <ul class="list-unstyled fs-sm text-muted mb-0">
-                  <li>Mon - Fri: 8AM - 10PM</li>
- 
-                </ul>
-              </div>
-            </div>
-          </div>
-          <!-- <div class="col-xl-3 col-sm-6 mb-grid-gutter">
+    </div>
+    <!-- <div class="col-xl-3 col-sm-6 mb-grid-gutter">
             <div class="card h-100">
               <div class="card-body text-center"><i class="ci-phone h3 mt-2 mb-4 text-primary"></i>
                 <h3 class="h6 mb-3">Phone numbers</h3>
@@ -55,82 +59,100 @@
               </div>
             </div>
           </div> -->
-          <div class="col-xl-3 col-sm-6 mb-grid-gutter">
-            <div class="card h-100">
-              <div class="card-body text-center"><i class="ci-mail h3 mt-2 mb-4 text-primary"></i>
-                <h3 class="h6 mb-3">Email addresses</h3>
-                <ul class="list-unstyled fs-sm mb-0">
-                  <!-- <li><span class="text-muted me-1">For inquiries:</span><a class="nav-link-style" href="mailto:+108044357260">info@navolga.com</a></li> -->
-                  <li class="mb-0"><span class="text-muted me-1">For inquiries</span><a class="nav-link-style" href="mailto:info@navolga.com">info@navolga.com</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- Outlet stores-->
-      <section class="container pt-4 mt-md-4 mb-5">
-        <h2 class="h3 text-center mb-3">Join Us Online</h2>
-        <div class="row pt-4">
-          <div class="col-md-4 col-sm-6 mb-grid-gutter">
-            <div class="card border-0 shadow"><img class="card-img-top" src= {% static "img/navolga_logo_sq.png" %}  alt="Orlando">
-              <div class="card-body">
-                <h6>Ulyanovsk, Russia</h6>
-                <ul class="list-unstyled mb-0">
-                  <li class="d-flex pb-3 border-bottom"><i class="ci-location fs-lg mt-2 mb-0 text-primary"></i>
-                    <div class="ps-3"><span class="fs-ms text-muted">Find us</span><a class="d-block text-heading fs-sm" href="#">Ulyanovsk, Russia</a></div>
-                  </li>
-                  <!-- <li class="d-flex pt-2 pb-3 border-bottom"><i class="ci-phone fs-lg mt-2 mb-0 text-primary"></i>
-                    <div class="ps-3"><span class="fs-ms text-muted">Call us</span><a class="d-block text-heading fs-sm" href="tel:+256200947066">0200947066</a></div>
-                  </li> -->
-                  <li class="d-flex pt-2"><i class="ci-mail fs-lg mt-2 mb-0 text-primary"></i>
-                    <div class="ps-3"><span class="fs-ms text-muted">Write us</span><a class="d-block text-heading fs-sm" href="mailto:info@ocareug.com">info@navolga.com</a></div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-      <!-- Split section: Map + Contact form-->
-      <div class="container-fluid px-0" id="map">
-        <div class="row g-0">
-          <div class="col-lg-6 iframe-full-height-wrap">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d149079.1270016202!2d48.22051757257919!3d54.27987460600871!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x415d365f8f42b3f5%3A0x2152ff0847091be4!2sUlyanovsk%2C%20Ulyanovsk%20Oblast!5e0!3m2!1sen!2sru!4v1736834098059!5m2!1sen!2sru" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>          </div>
-          <div class="col-lg-6 px-4 px-xl-5 py-5 border-top">
-            <h2 class="h4 mb-4">Write to us</h2>
-            <form class="needs-validation mb-3" novalidate>
-              <div class="row g-3">
-                <div class="col-sm-6">
-                  <label class="form-label" for="cf-name">Your name:&nbsp;<span class="text-danger">*</span></label>
-                  <input class="form-control" type="text" id="cf-name" placeholder="ivan ivanovich" required>
-                  <div class="invalid-feedback">Please fill in you name!</div>
-                </div>
-                <div class="col-sm-6">
-                  <label class="form-label" for="cf-email">Email address:&nbsp;<span class="text-danger">*</span></label>
-                  <input class="form-control" type="email" id="cf-email" placeholder="ivanovich@email.com" required>
-                  <div class="invalid-feedback">Please provide valid email address!</div>
-                </div>
-                <div class="col-sm-6">
-                  <label class="form-label" for="cf-phone">Your phone:&nbsp;<span class="text-danger">*</span></label>
-                  <input class="form-control" type="text" id="cf-phone" placeholder="0759599992" required>
-                  <div class="invalid-feedback">Please provide valid phone number!</div>
-                </div>
-                <div class="col-sm-6">
-                  <label class="form-label" for="cf-subject">Subject:</label>
-                  <input class="form-control" type="text" id="cf-subject" placeholder="Provide short title of your request">
-                </div>
-                <div class="col-12">
-                  <label class="form-label" for="cf-message">Message:&nbsp;<span class="text-danger">*</span></label>
-                  <textarea class="form-control" id="cf-message" rows="6" placeholder="Please describe in detail your request" required></textarea>
-                  <div class="invalid-feedback">Please write a message!</div>
-                  <button class="btn btn-primary mt-4" type="submit">Send message</button>
-                </div>
-              </div>
-            </form>
-          </div>
+    <div class="col-xl-3 col-sm-6 mb-grid-gutter">
+      <div class="card h-100">
+        <div class="card-body text-center"><i class="ci-mail h3 mt-2 mb-4 text-primary"></i>
+          <h3 class="h6 mb-3">Email addresses</h3>
+          <ul class="list-unstyled fs-sm mb-0">
+            <!-- <li><span class="text-muted me-1">For inquiries:</span><a class="nav-link-style" href="mailto:+108044357260">info@navolga.com</a></li> -->
+            <li class="mb-0"><span class="text-muted me-1">For inquiries</span><a class="nav-link-style"
+                href="mailto:info@navolga.com">info@navolga.com</a></li>
+          </ul>
         </div>
       </div>
-    </main>
-    {%include 'footer.html'%}
+    </div>
+  </div>
+</section>
+<!-- Outlet stores-->
+{%for event in events %}
+<section class="container pt-4 mt-md-4 mb-5">
+  <h2 class="h3 text-center mb-3">Join Us Online</h2>
+  <div class="row pt-4">
+    <div class="col-md-4 col-sm-6 mb-grid-gutter">
+      <div class="card border-0 shadow"><img class="card-img-top" src="{{ event.featured_image.url }}"
+          alt="Orlando">
+        <div class="card-body">
+          <h6>Topic: {{ event.title }} </h6>
+          <ul class="list-unstyled mb-0">
+            <li class="d-flex pb-3 border-bottom"><i class=" fs-lg mt-2 mb-0 text-primary"></i>
+              <div class="ps-3"><span class="fs-ms text-muted">Location</span><a class="d-block text-heading fs-sm"
+                  href={{event.location}}>Telegram {{event.location}} </a></div>
+            </li>
+            <li class="d-flex pb-3 border-bottom"><i class="ci-clock fs-lg mt-2 mb-0 text-primary"></i>
+              <div class="ps-3"><span class="fs-ms text-muted">Time and Date</span><a class="d-block text-heading fs-sm"
+                  href="#">{{event.date}} , {{event.time}}</a></div>
+            </li>
+            <li class="d-flex pb-3 border-bottom"><i class="ci-info fs-lg mt-2 mb-0 text-primary"></i>
+              <div class="ps-3"><span class="fs-ms text-muted">Details</span><a class="d-block text-heading fs-sm"
+                  href="#">{{event.description}}</a></div>
+            </li>
+            <!-- <li class="d-flex pt-2 pb-3 border-bottom"><i class="ci-phone fs-lg mt-2 mb-0 text-primary"></i>
+                    <div class="ps-3"><span class="fs-ms text-muted">Call us</span><a class="d-block text-heading fs-sm" href="tel:+256200947066">0200947066</a></div>
+                  </li> -->
+            <li class="d-flex pt-2"><i class=" fs-lg mt-2 mb-0 text-primary"></i>
+              <div class="ps-3"><span class="fs-ms text-muted">Write us</span><a class="d-block text-heading fs-sm"
+                  href="mailto:info@ocareug.com">hello@navolga.com</a></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endfor %}
+<!-- Split section: Map + Contact form-->
+<div class="container-fluid px-0" id="map">
+  <div class="row g-0">
+    <div class="col-lg-6 iframe-full-height-wrap">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d149079.1270016202!2d48.22051757257919!3d54.27987460600871!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x415d365f8f42b3f5%3A0x2152ff0847091be4!2sUlyanovsk%2C%20Ulyanovsk%20Oblast!5e0!3m2!1sen!2sru!4v1736834098059!5m2!1sen!2sru"
+        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="col-lg-6 px-4 px-xl-5 py-5 border-top">
+      <h2 class="h4 mb-4">Write to us</h2>
+      <form class="needs-validation mb-3" novalidate>
+        <div class="row g-3">
+          <div class="col-sm-6">
+            <label class="form-label" for="cf-name">Your name:&nbsp;<span class="text-danger">*</span></label>
+            <input class="form-control" type="text" id="cf-name" placeholder="ivan ivanovich" required>
+            <div class="invalid-feedback">Please fill in you name!</div>
+          </div>
+          <div class="col-sm-6">
+            <label class="form-label" for="cf-email">Email address:&nbsp;<span class="text-danger">*</span></label>
+            <input class="form-control" type="email" id="cf-email" placeholder="ivanovich@email.com" required>
+            <div class="invalid-feedback">Please provide valid email address!</div>
+          </div>
+          <div class="col-sm-6">
+            <label class="form-label" for="cf-phone">Your phone:&nbsp;<span class="text-danger">*</span></label>
+            <input class="form-control" type="text" id="cf-phone" placeholder="0759599992" required>
+            <div class="invalid-feedback">Please provide valid phone number!</div>
+          </div>
+          <div class="col-sm-6">
+            <label class="form-label" for="cf-subject">Subject:</label>
+            <input class="form-control" type="text" id="cf-subject" placeholder="Provide short title of your request">
+          </div>
+          <div class="col-12">
+            <label class="form-label" for="cf-message">Message:&nbsp;<span class="text-danger">*</span></label>
+            <textarea class="form-control" id="cf-message" rows="6" placeholder="Please describe in detail your request"
+              required></textarea>
+            <div class="invalid-feedback">Please write a message!</div>
+            <button class="btn btn-primary mt-4" type="submit">Send message</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</main>
+{%include 'footer.html'%}

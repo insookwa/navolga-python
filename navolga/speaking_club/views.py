@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Event, Attendee
 
 def event_list(request):
-    events = Event.objects.order_by('date', 'time').filter(date__gte='today')
+    events = Event.objects.order_by('date', 'time')
     return render(request, 'speaking_club/speaking_club.html', {'events': events})
 
 def event_detail(request, pk):
