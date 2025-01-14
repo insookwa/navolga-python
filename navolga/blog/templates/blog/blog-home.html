@@ -43,11 +43,7 @@
               </div>
               <div class="d-flex align-items-center fs-sm"><a class="blog-entry-meta-link" href="#">
                   <div class="blog-entry-author-ava"><img src={% static "img/navolga_logo_round.png" %} alt="{{ post.author }}"></div>{{ post.author }}</a><span class="blog-entry-meta-divider"></span>
-                <div class="fs-sm text-muted"><a href='#' class='blog-entry-meta-link'>   <ul>
-                  {% for tag in post.tags.all %}
-                      <li>{{ tag.name }}</li>
-                  {% endfor %}
-              </ul>   </a>, <a href='#' class='blog-entry-meta-link'>Traveling</a></div>
+                <div class="fs-sm text-muted">{% for tag in post.tags.all %} <a href='#' class='blog-entry-meta-link'>{{ tag.name }}</a> {% endfor %}</div>
               </div>
             </article>
             {% endfor %}
@@ -70,11 +66,12 @@
               <div class="card"><a class="blog-entry-thumb" href="blog-single.html"><img class="card-img-top" src="{{ post.post_photos.0.photo.url }}" alt="Post"></a>
                 <div class="card-body">
                   <h2 class="h6 blog-entry-title"><a href="blog-single.html">{{ post.title }}</a></h2>
-                  <p class="fs-sm">{{post.snipet}}</p><a class="btn-tag me-2 mb-2" href="#">Shopping</a><a class="btn-tag me-2 mb-2" href="#">Fashion</a>
+                  <p class="fs-sm">{{post.snipet}}</p>{% for tag in post.tags.all %}
+                  <a class="btn-tag me-2 mb-2" href="#">{{ tag.name }}</a>{% endfor %} 
                 </div>
                 <div class="card-footer d-flex align-items-center fs-xs"><a class="blog-entry-meta-link" href="#">
                     <div class="blog-entry-author-ava"><img src={% static "img/navolga_logo_round.png" %}  alt="Cynthia Gomez"></div>{{ post.author }}</a>
-                  <div class="ms-auto text-nowrap"><a class="blog-entry-meta-link text-nowrap" href="#">Jul 23</a><span class="blog-entry-meta-divider mx-2"></span><a class="blog-entry-meta-link text-nowrap" href="blog-single.html#comments"><i class="ci-message"></i>19</a></div>
+                  <div class="ms-auto text-nowrap"><a class="blog-entry-meta-link text-nowrap" href="#">{{ post.created_at}}</a><span class="blog-entry-meta-divider mx-2"></span><a class="blog-entry-meta-link text-nowrap" href="blog-single.html#comments"><i class="ci-message"></i>19</a></div>
                 </div>
               </div>
             </article>
