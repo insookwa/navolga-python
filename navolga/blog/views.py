@@ -31,7 +31,7 @@ def blog_home(request):
 # Individual post detail
 def post_detail(request, slug):
     post = get_object_or_404(Post, slug=slug, status='published')
-    return render(request, 'blog/post_detail.html', {'post': post})
+    return render(request, 'blog/post_details.html', {'post': post})
 
 # Posts by category
 def category_posts(request, slug):
