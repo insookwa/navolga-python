@@ -30,8 +30,19 @@ def blog_home(request):
 
 # Individual post detail
 def post_detail(request, slug):
+
+    other_posts = Post.objects.filter(status='published').order_by('-created_at').prefetch_related(
+
+    Prefetch('photos', queryset=PostPhoto.objects.all(), to_attr='post_photos')
+    )
+
     post = get_object_or_404(Post, slug=slug, status='published')
-    return render(request, 'blog/post_details.html', {'post': post})
+
+    
+    posts = Post.objects.filter(status='published').order_by('-created_at').prefetch_related(
+    Prefetch('photos', queryset=PostPhoto.objects.all(), to_attr='post_photos')
+    )
+    return render(request, 'blog/post_details.html', {'post': post ,'other_posts':other_posts})
 
 # Posts by category
 def category_posts(request, slug):

@@ -9,7 +9,7 @@ class Event(models.Model):
     duration = models.DurationField(help_text="Duration of the event (e.g., 2 hours)")
     host = models.ForeignKey(User, on_delete=models.CASCADE, related_name='hosted_events')
     location = models.CharField(max_length=255, help_text="e.g., Zoom, Google Meet link")
-    max_attendees = models.PositiveIntegerField()
+    max_attendees = models.PositiveIntegerField()   
     featured_image = models.ImageField(upload_to='event_images/', blank=True, null=True, help_text="Primary event image")
     image1 = models.ImageField(upload_to='event_images/', blank=True, null=True, help_text="Additional image 1")
     image2 = models.ImageField(upload_to='event_images/', blank=True, null=True, help_text="Additional image 2")
