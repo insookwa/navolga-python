@@ -52,7 +52,7 @@
                     <i class="ci-heart"></i>
                   </button>
                   <a class="card-img-top d-block overflow-hidden" href='{% url "product_details" product.id %}'>
-                    <img src="{{ product.image }}" alt="{{ product.name }}">
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}">
                   </a>
                   <div class="card-body py-2">
                     <a class="product-meta d-block fs-xs pb-1" href="#">{{ product.category }}</a>
@@ -91,7 +91,7 @@
                     <i class="ci-heart"></i>
                   </button>
                   <a class="card-img-top d-block overflow-hidden" href='{% url "product_details" product.id %}'>
-                    <img src="{{ product.image }}" alt="{{ product.name }}">
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}">
                   </a>
                   <div class="card-body py-2">
                     <a class="product-meta d-block fs-xs pb-1" href="#">{{ product.category }}</a>
