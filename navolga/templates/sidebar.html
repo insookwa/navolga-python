@@ -57,14 +57,14 @@
                     {% if request.user.is_authenticated %}
 
                     <li class="widget-list-item"><a class="widget-list-link" href="{% url 'account_view' %}">My Account</a></li>
-                    <li class="widget-list-item"><a class="widget-list-link" href="account-orders.html">Transactions</a></li>
-                    <li class="widget-list-item"><a class="widget-list-link" href="account-orders.html">Apply for Loan</a></li>
-                    <li class="widget-list-item"><a class="widget-list-link" href="account-orders.html">Information</a></li>
-                    <li class="widget-list-item"><a class="widget-list-link" href="account-orders.html">Contact Manager</a></li>
+                    <li class="widget-list-item"><a class="widget-list-link" href="{% url 'account_view' %}">Transactions</a></li>
+                    <li class="widget-list-item"><a class="widget-list-link" href="{% url 'account_view' %}">Apply for Loan</a></li>
+                    <li class="widget-list-item"><a class="widget-list-link" href="{% url 'account_view' %}">Information</a></li>
+                    <li class="widget-list-item"><a class="widget-list-link" href="{% url 'account_view' %}">Contact Manager</a></li>
                     <li class="widget-list-item"><a class="widget-list-link" href="{% url 'logout_view' %}">Logout</a>
                     </li>
                     <li class="widget-list-item"><a class="widget-list-link"
-                        href="account-password-recovery.html">Password Recovery</a></li>
+                        href="{% url 'logout_view' %}">Password Recovery</a></li>
                     {% else %}
                     <li class="widget-list-item"><a class="widget-list-link" href="{% url 'login_view' %}">Sign In /
                         Sign Up</a></li>
@@ -147,14 +147,14 @@
                     {% if request.user.is_authenticated %}
 
                     <li class="widget-list-item"><a class="widget-list-link" href="{% url 'account_view' %}">My Account</a></li>
-                    <li class="widget-list-item"><a class="widget-list-link" href="account-orders.html">Transactions</a></li>
-                    <li class="widget-list-item"><a class="widget-list-link" href="account-orders.html">Apply for Loan</a></li>
-                    <li class="widget-list-item"><a class="widget-list-link" href="account-orders.html">Information</a></li>
-                    <li class="widget-list-item"><a class="widget-list-link" href="account-orders.html">Contact Manager</a></li>
+                    <li class="widget-list-item"><a class="widget-list-link" href="{% url 'account_view' %}">Transactions</a></li>
+                    <li class="widget-list-item"><a class="widget-list-link" href="{% url 'account_view' %}">Apply for Loan</a></li>
+                    <li class="widget-list-item"><a class="widget-list-link" href="{% url 'account_view' %}">Information</a></li>
+                    <li class="widget-list-item"><a class="widget-list-link" href="{% url 'account_view' %}">Contact Manager</a></li>
                     <li class="widget-list-item"><a class="widget-list-link" href="{% url 'logout_view' %}">Logout</a>
                     </li>
                     <li class="widget-list-item"><a class="widget-list-link"
-                        href="account-password-recovery.html">Password Recovery</a></li>
+                        href="{% url 'logout_view' %}">Password Recovery</a></li>
                     {% else %}
                     <li class="widget-list-item"><a class="widget-list-link" href="{% url 'login_view' %}">Sign In /
                         Sign Up</a></li>
