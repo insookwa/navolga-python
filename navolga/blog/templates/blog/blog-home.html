@@ -3,16 +3,17 @@
 {% include 'sidebar.html' %}
 {% load static %}
 
-{% if messages %}
+
+
+      <!-- Page Title (Light)-->
+      <div class="bg-secondary py-4">
+        {% if messages %}
   <div class="alert alert-warning" role="alert">
     {% for message in messages %}
       <p>{{ message }}</p>
     {% endfor %}
   </div>
 {% endif %}
-
-      <!-- Page Title (Light)-->
-      <div class="bg-secondary py-4">
         <div class="container d-lg-flex justify-content-between py-2 py-lg-3">
           <div class="order-lg-2 mb-3 mb-lg-0 pt-lg-2">
             <nav aria-label="breadcrumb">
