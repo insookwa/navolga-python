@@ -76,3 +76,14 @@ class Basket(models.Model):
 
     def get_total(self):
         return sum(item.get_subtotal() for item in self.items.all())
+    
+class BasketItem(models.Model):
+    basket = models.ForeignKey(Basket, on_delete=models.CASCADE, related_name="items")
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField(default=1)
+
+    def __str__(self):
+        return f"{self.quantity} x {self.product.name}"
+
+    def get_subtotal(self):
+        return self.product.price * self.quantity

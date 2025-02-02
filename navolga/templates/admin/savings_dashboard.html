@@ -1,0 +1,33 @@
+{% extends "admin/base_site.html" %}
+
+{% block content %}
+<h1>Savings Group Summary</h1>
+
+<div style="display: flex; gap: 20px;">
+    <div style="border: 1px solid #ddd; padding: 15px; border-radius: 10px;">
+        <h3>Total Members</h3>
+        <p>{{ total_members }}</p>
+    </div>
+
+    <div style="border: 1px solid #ddd; padding: 15px; border-radius: 10px;">
+        <h3>Total Savings</h3>
+        <p>{{ total_savings }}</p>
+    </div>
+
+    <div style="border: 1px solid #ddd; padding: 15px; border-radius: 10px;">
+        <h3>Total Loans Issued</h3>
+        <p>{{ total_loans }}</p>
+    </div>
+
+    <div style="border: 1px solid #ddd; padding: 15px; border-radius: 10px;">
+        <h3>Total Deposits</h3>
+        <p>{{ total_deposits }}</p>
+    </div>
+
+    <div style="border: 1px solid #ddd; padding: 15px; border-radius: 10px;">
+        <h3>Total Withdrawals</h3>
+        <p>{{ total_withdrawals }}</p>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "admin/base_site.html" %}
+
+{% block content %}
+<h2>{{ title }}</h2>
+<form method="post">
+    {% csrf_token %}
+    <label>Enter Deposit Amount:</label>
+    <input type="number" name="amount" min="1" required>
+    <input type="hidden" name="_selected_action" value="{{ request.GET.ids }}">
+    <button type="submit">Deposit</button>
+</form>
+{% endblock %}

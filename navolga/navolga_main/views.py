@@ -1,5 +1,6 @@
+from django.contrib import messages
 from django.shortcuts import render
-from .models import Basket, Category,Product, Slide
+from .models import Basket, Category,Product, Slide,BasketItem
 from django.shortcuts import render,get_object_or_404 , redirect
 
 
@@ -53,7 +54,7 @@ def basket_view(request):
         "items": items,
         "total": basket.get_total() if basket else 0,
     }
-    return render(request, "ocare_main/basket.html", context)
+    return render(request, "navolga_main/basket.html", context)
 
 def categoryProducts(request,category_id):
 
@@ -73,7 +74,7 @@ def categoryProducts(request,category_id):
 
 
 
-    return render(request,'ocare_main/category_products.html',{
+    return render(request,'navolga_main/category_products.html',{
         'category': category,
         'category_products': category_products,
         'categories': categories,
@@ -101,7 +102,7 @@ def product_detail(request,product_id):
         total = basket.get_total() if basket else 0
 
 
-    return render(request, 'ocare_main/product_details.html',
+    return render(request, 'navolga_main/product_details.html',
                    {'product': product,
                     'related_products':related_products,
                     'categories': categories,
@@ -109,3 +110,28 @@ def product_detail(request,product_id):
                     "items": items,
                     "total_items": total_items,
                     "total": total, })
+
+
+def add_to_basket(request, product_id):
+
+    product = get_object_or_404(Product, id=product_id)
+    basket, created = Basket.objects.get_or_create(user=request.user)
+    quantity = int(request.POST.get("quantity", 1))
+
+    # Check if the item is already in the basket
+    basket_item, item_created = BasketItem.objects.get_or_create(
+        basket=basket,
+        product=product
+    )
+
+    if not item_created:
+        # If item already exists, increase the quantity
+        basket_item.quantity += quantity
+    else:
+        # Set the quantity to the specified amount
+        basket_item.quantity = quantity
+
+    basket_item.save()
+
+    messages.success(request, f"{product.name} has been added to your basket.")
+    return redirect("home")  # Redirect to your product page

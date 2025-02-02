@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% if messages %}
+  <div class="alert alert-warning" role="alert">
+    {% for message in messages %}
+      <p>{{ message }}</p>
+    {% endfor %}
+  </div>
+{% endif %}
+
+<h2>Your Profile</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ profile_form.as_p }}
+    <button type="submit">Update Profile</button>
+</form>
+{% endblock %}

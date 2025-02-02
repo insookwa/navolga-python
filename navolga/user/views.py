@@ -1,9 +1,11 @@
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-from .models import UserProfile  # Import the UserProfile model
+from .models import GroupMembership, Transaction, UserProfile  # Import the UserProfile model
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
+from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_protect
 
 def register_view(request):
     if request.method == "POST":
@@ -26,7 +28,7 @@ def register_view(request):
             
             messages.success(request, "Registration successful. Please log in.")
             return redirect("login_view")
-    return render(request, "user/register.html")
+    return render(request, "register.html")
 
 
 
@@ -49,10 +51,30 @@ def login_view(request):
         else:
             messages.error(request, "Invalid email or password.")
     
-    return render(request, "user/login.html")
+    return render(request, "login.html")
 
 
 def logout_view(request):
     logout(request)
     messages.success(request, "Logged out successfully.")
     return redirect('login_view')
+
+
+@login_required
+@csrf_protect
+def account_view(request):
+    try:
+        user_profile = request.user.profile  # Use related_name 'profile'
+    except UserProfile.DoesNotExist:
+        user_profile = None  # Handle missing profile
+
+    group_membership = GroupMembership.objects.filter(user=request.user).first()
+    transactions = Transaction.objects.filter(user_profile=user_profile).order_by('-timestamp') if user_profile else []
+
+    context = {
+        "user_profile": user_profile,
+        "account_balance": group_membership.account_balance if group_membership else 0,
+        "transactions": transactions
+    }
+
+    return render(request, "account_home.html", context)

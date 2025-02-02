@@ -1,11 +1,12 @@
 from django.contrib import admin
+from user.admin import admin_site
 
 
 from .models import Category,Product,Slide
 
-admin.site.register(Category)
-admin.site.register(Product)
-admin.site.register(Slide)
+admin_site.register(Category)
+admin_site.register(Product)
+admin_site.register(Slide)
 
 
 admin.site.site_header = "navolga Admin Panel"  # Main header on the admin dashboard

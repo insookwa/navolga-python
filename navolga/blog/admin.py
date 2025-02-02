@@ -1,4 +1,5 @@
 from django.contrib import admin
+from user.admin import admin_site
 from .models import Category, Tag, Post, PostPhoto,Comment
 
 class PostPhotoInline(admin.TabularInline):
@@ -32,3 +33,8 @@ class TagAdmin(admin.ModelAdmin):
 class CommentAdmin(admin.ModelAdmin):
     list_display = ('author_name', 'post', 'created_at')
     search_fields = ('author_name', 'content')
+
+admin_site.register(Post)
+admin_site.register(Category)
+admin_site.register(Tag)
+admin_site.register(Comment)
